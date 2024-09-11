@@ -1,5 +1,9 @@
-object bombon {
-    method precio () = 5
+class Golosina {
+    var property precio  
+}
+
+object bombon inherits Golosina (precio = 5) {
+    
     method sabor () = "Frutilla"
     method peso () = 15
     method gluten() = false 
