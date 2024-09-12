@@ -159,6 +159,8 @@ method mordisquito() {
 object mariano {
 
     var property bolsaGolosinas =  []
+    
+    method queTengo() = bolsaGolosinas
 
     method comprar (unaGolosina){
         bolsaGolosinas.add(unaGolosina)
@@ -174,5 +176,9 @@ object mariano {
     }
     //con any con que 1 solo cumpla te devuelve
     method tiene() = bolsaGolosinas.any({golosina => golosina.tieneGluten()})
+
+    //con all se tienen que cumplir TODOS
+    method preciosCuidados() = (bolsaGolosinas.all({golosina => golosina.precio()>10}))
     
- }
+    
+    }
