@@ -1,1 +1,5 @@
-
+import golosinas.*
+test "bombon"{
+    assert.equals(false , bombon.tieneGluten())
+    assert.equals(15,bombon.peso())
+} 
