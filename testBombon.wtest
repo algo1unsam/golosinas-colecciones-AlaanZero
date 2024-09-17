@@ -15,4 +15,8 @@ describe "Golosinas" {
     assert.equals(bombon.gluten(),true)
   }
 
+  test "caramelo"{
+    
+  }
+
 }
