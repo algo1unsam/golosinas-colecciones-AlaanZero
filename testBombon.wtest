@@ -1,1 +1,18 @@
+import golosinas.*
 
+describe "Golosinas" {
+
+  test "bombon" {
+   	assert.equals(bombon.sabor(), "frutilla")
+    assert.equals(bombon.precio(),5)
+    assert.equals(bombon.peso(),15)
+    assert.equals(bombon.gluten(),false)
+  }
+  test "alfajor" {
+   	assert.equals(bombon.sabor(), "chocolate")
+    assert.equals(bombon.precio(),12)
+    assert.equals(bombon.peso(),300)
+    assert.equals(bombon.gluten(),true)
+  }
+
+}

@@ -203,7 +203,7 @@ object mariano {
         return total
     }
 
-    //tengo que pasarlo asi ([golosina,golosina2])
+    //tengo que pasarlo asi ([golosina,golosina2,golosina3,etc])
     method golosinaFaltantes(golosinasDeseadas) {
         var faltantes = #{} 
 
