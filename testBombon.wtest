@@ -1,1 +1,157 @@
+import golosinas.*
 
+describe "Golosinas" {
+
+  test "bombon" {
+   	assert.equals(bombon.sabor(), "frutilla")
+    assert.equals(bombon.precio(),5)
+    assert.equals(bombon.peso(),15)
+    assert.equals(bombon.gluten(),false)
+
+    bombon.mordisquito()
+    assert.equals(bombon.peso(),11)
+    bombon.mordisquito()
+    assert.equals(bombon.peso(),7.8)
+  }
+  test "alfajor" {
+   	assert.equals(alfajor.sabor(), "chocolate")
+    assert.equals(alfajor.precio(),12)
+    assert.equals(alfajor.peso(),300)
+    assert.equals(alfajor.gluten(),true)
+
+    alfajor.mordisquito()
+    assert.equals(alfajor.peso(),240)
+    alfajor.mordisquito()
+    assert.equals(alfajor.peso(),192)
+  }
+  test "caramelo" {
+   	assert.equals(caramelo.sabor(), "frutilla")
+    assert.equals(caramelo.precio(),1)
+    assert.equals(caramelo.peso(),5)
+    assert.equals(caramelo.gluten(),false)
+
+    caramelo.mordisquito()
+    assert.equals(caramelo.peso(),4)
+    caramelo.mordisquito()
+    assert.equals(caramelo.peso(),3)
+  }
+  test "chupetin" {
+   	assert.equals(chupetin.sabor(), "naranja")
+    assert.equals(chupetin.precio(),2)
+    assert.equals(chupetin.peso(),7)
+    assert.equals(chupetin.gluten(),false)
+
+    chupetin.mordisquito()
+    assert.equals(chupetin.peso(),6.3)
+    chupetin.mordisquito()
+    assert.equals(chupetin.peso(),5.67)
+  }
+  test "oblea" {
+   	assert.equals(oblea.sabor(), "vainilla")
+    assert.equals(oblea.precio(),5)
+    assert.equals(oblea.peso(),250)
+    assert.equals(oblea.gluten(),true)
+
+    oblea.mordisquito()
+    assert.equals(oblea.peso(),125)
+    oblea.mordisquito()
+    assert.equals(oblea.peso(),62.5) 
+    oblea.mordisquito()
+    assert.equals(oblea.peso(),46.875)
+  }
+   test "chocolatin" {
+   	assert.equals(chocolatin.sabor(), "chocolate")
+    chocolatin.asignarPeso(40)
+    assert.equals(chocolatin.precio(),20)
+    assert.equals(chocolatin.peso(),40)
+    assert.equals(chocolatin.gluten(),false)
+
+    chocolatin.mordisquito()
+    assert.equals(chocolatin.peso(),38)
+    chocolatin.mordisquito()
+    assert.equals(chocolatin.peso(),36) 
+  }
+    test "chocolatin2" {
+   	assert.equals(chocolatin.sabor(), "chocolate")
+    chocolatin.asignarPeso(100)
+    assert.equals(chocolatin.precio(),50)
+    assert.equals(chocolatin.peso(),100)
+    assert.equals(chocolatin.gluten(),false)
+
+    chocolatin.mordisquito()
+    assert.equals(chocolatin.peso(),98)
+    chocolatin.mordisquito()
+    assert.equals(chocolatin.peso(),96) 
+  }
+  
+  test "tuti" {
+    tuti.glutenTiene(false)
+   	assert.equals(tuti.sabor(), "frutilla")
+    assert.equals(tuti.precio(),7)
+    assert.equals(tuti.peso(),5)
+    assert.equals(tuti.gluten(),false)
+
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(),"chocolate")
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(),"naranja") 
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(), "frutilla")
+
+  }
+   test "tuti2" {
+    tuti.glutenTiene(true)
+   	assert.equals(tuti.sabor(), "frutilla")
+    assert.equals(tuti.precio(),10)
+    assert.equals(tuti.peso(),5)
+    assert.equals(tuti.gluten(),true)
+
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(),"chocolate")
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(),"naranja") 
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(), "frutilla")
+  }
+  //- bañando una pastilla tutti-frutti.
+ test "bañado" {
+
+     tuti.glutenTiene(true)
+   	assert.equals(tuti.sabor(), "frutilla")
+    banado.queGolosina(tuti)
+    assert.equals(banado.precio(),12)
+    assert.equals(banado.peso(),9)
+    assert.equals(tuti.gluten(),true)
+
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(),"chocolate")
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(),"naranja") 
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(), "frutilla")
+  }
+  //- bañando un chocolatín.
+  test "bañado2" {
+    chocolatin.asignarPeso(40)
+   	banado.queGolosina(chocolatin)
+    assert.equals(banado.precio(),22)
+    assert.equals(banado.peso(), 44)
+
+    banado.mordisquito()
+    assert.equals(banado.peso(), 42)
+    banado.mordisquito()
+    assert.equals(banado.peso(), 40)
+  }
+//- bañando un chupetín.
+    test "bañado3" {
+    chocolatin.asignarPeso(40)
+   	banado.queGolosina(chupetin)
+    assert.equals(banado.precio(),4)
+    assert.equals(banado.peso(), 11)
+
+    banado.mordisquito()
+    assert.equals(banado.peso(), 9)
+    banado.mordisquito()
+    assert.equals(banado.peso(), 7)
+  }
+}
