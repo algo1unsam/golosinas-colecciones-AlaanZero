@@ -238,7 +238,35 @@ object mariano {
         return faltantes 
     }
 
+// parte 3 . Para bañado primero castear banado.queGolosina(algo) , luego comprar banado y sumarlo
+
+     method PrecioTotal() {
+        var total = 0
+        bolsaGolosinas.forEach({golosinas=>  total += golosinas.precio()})
+        return total
+     }
+
+     method pesoTotal(){
+        var total = 0 
+        bolsaGolosinas.forEach({golosinas => total += golosinas.peso()})
+        return total
+     }
+      method banar(unaGolosina) {
+        if (!bolsaGolosinas.contains(unaGolosina)) {
+            return "la golosina no  la tiene Mariano"
+        } else {
+            const golosinaBanada = new banado ()
+            golosinaBanada.queGolosina(unaGolosina)
+            bolsaGolosinas.add(golosinaBanada)
+            return golosinaBanada + "bañado con exito"
+        }
+    }
 }
+
+
+
+
+
 
 
 
