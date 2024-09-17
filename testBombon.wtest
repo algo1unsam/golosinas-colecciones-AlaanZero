@@ -105,7 +105,7 @@ describe "Golosinas" {
     assert.equals(tuti.precio(),10)
     assert.equals(tuti.peso(),5)
     assert.equals(tuti.gluten(),true)
-    
+
     tuti.mordisquito()
     assert.equals(tuti.sabor(),"chocolate")
     tuti.mordisquito()
@@ -113,5 +113,45 @@ describe "Golosinas" {
     tuti.mordisquito()
     assert.equals(tuti.sabor(), "frutilla")
   }
+  //- bañando una pastilla tutti-frutti.
+ test "bañado" {
 
+     tuti.glutenTiene(true)
+   	assert.equals(tuti.sabor(), "frutilla")
+    banado.queGolosina(tuti)
+    assert.equals(banado.precio(),12)
+    assert.equals(banado.peso(),9)
+    assert.equals(tuti.gluten(),true)
+
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(),"chocolate")
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(),"naranja") 
+    tuti.mordisquito()
+    assert.equals(tuti.sabor(), "frutilla")
+  }
+  //- bañando un chocolatín.
+  test "bañado2" {
+    chocolatin.asignarPeso(40)
+   	banado.queGolosina(chocolatin)
+    assert.equals(banado.precio(),22)
+    assert.equals(banado.peso(), 44)
+
+    banado.mordisquito()
+    assert.equals(banado.peso(), 42)
+    banado.mordisquito()
+    assert.equals(banado.peso(), 40)
+  }
+//- bañando un chupetín.
+    test "bañado3" {
+    chocolatin.asignarPeso(40)
+   	banado.queGolosina(chupetin)
+    assert.equals(banado.precio(),4)
+    assert.equals(banado.peso(), 11)
+
+    banado.mordisquito()
+    assert.equals(banado.peso(), 9)
+    banado.mordisquito()
+    assert.equals(banado.peso(), 7)
+  }
 }

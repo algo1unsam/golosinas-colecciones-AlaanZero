@@ -114,10 +114,11 @@ object banado inherits Golosina (precio = 2, sabor = " ", gluten = false, peso=4
 
     method queGolosina(golosina) {
         golosinaBase = golosina
-        peso = golosinaBase.peso() + 4
+        peso = (golosinaBase.peso() + 4)
         precio = golosinaBase.precio() +2 
         sabor = golosinaBase.sabor()
         gluten =  golosinaBase.gluten()
+        return peso
     }
 
     method mordisquito() {
