@@ -159,6 +159,7 @@ method mordisquito() {
 object mariano {
 
     var property bolsaGolosinas =  []
+
     var property sabores = []
     
     method queTengo() = bolsaGolosinas
@@ -172,9 +173,13 @@ object mariano {
     }
 
     method probarGolosina() {
+
         //for each recorrte todo
       bolsaGolosinas.forEach({golosina => golosina.mordisquito()})
       return "La mordiste a todas goloso"
+
+      bolsaGolosinas.forEach({golosina => golosina.mordisquito()})
+      return "La mordiste toda goloso"
     }
     //con any con que 1 solo cumpla te devuelve
     method tiene() = bolsaGolosinas.any({golosina => golosina.tieneGluten()})
@@ -182,6 +187,7 @@ object mariano {
     //con all se tienen que cumplir TODOS
     method preciosCuidados() = (bolsaGolosinas.all({golosina => golosina.precio()>10}))
     
+
     method golosinaDeSabor(unSabor) = bolsaGolosinas.any({golosina => golosina.sabor() == unSabor})
     
     method sabores(){
@@ -227,4 +233,6 @@ object mariano {
     }
 
 }
+
+
 
