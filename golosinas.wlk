@@ -22,7 +22,7 @@ object bombon inherits Golosina (precio = 5 , sabor = "frutilla",peso = 15,glute
     
 }
 
-object alfajor inherits Golosina (precio = 12 , sabor = "Chocolate",peso=300,gluten = false) {
+object alfajor inherits Golosina (precio = 12 , sabor = "chocolate",peso=300,gluten = true) {
 
     method tieneGluten() = gluten 
 
@@ -38,7 +38,7 @@ object alfajor inherits Golosina (precio = 12 , sabor = "Chocolate",peso=300,glu
 }
 
 
-object caramelo inherits Golosina(precio=1,sabor="frutilla",peso=5,gluten=true){
+object caramelo inherits Golosina(precio=1,sabor="frutilla",peso=5,gluten=false){
 
     method tieneGluten() = gluten 
 
@@ -86,13 +86,13 @@ object oblea inherits Golosina(precio=5 , sabor ="vainilla", peso = 250, gluten 
 object chocolatin inherits Golosina (precio = 0 , sabor = "chocolate" , gluten = false, peso=0) {
     
     var pesoInicial = peso 
-    var precios = 0
 
     method asignarPeso(nuevoPeso) {
         pesoInicial = nuevoPeso
         peso = nuevoPeso
-        precios = pesoInicial * 0.5
-        return precios
+       var precios = pesoInicial * 0.5
+       precio = precios
+        return precio
     }
 
     method mordisquito() {
@@ -136,14 +136,16 @@ object banado inherits Golosina (precio = 2, sabor = " ", gluten = false, peso=4
 }
     
 
-object tuti inherits Golosina (precio = 7 , sabor = "chocolate" , gluten = false, peso=5) {
-var property sabores = ["frutilla" , "chocolate" , "naranja"]
+object tuti inherits Golosina (precio = 7 , sabor = "frutilla" , gluten = null, peso=5) {
+var property sabores = ["chocolate" , "naranja" , "frutilla"]
 var sabore = ""
-method glutenT (valor) {
+method glutenTiene (valor) {
   if (valor){
-    precio = 7
-  }else {
+    gluten = valor
     precio = 10
+  }else {
+     gluten = valor
+    precio = 7
   }
 }
 
@@ -151,9 +153,12 @@ method mordisquito() {
   sabore = sabores.first()
   sabores.remove(sabore)
   sabores.add(sabore)
-  return sabore
+  sabor = sabore
+  return sabor
 }
-    method tieneGluten() = gluten 
+    method tieneGluten(){
+        return gluten 
+    }
 }
 
 object mariano {
